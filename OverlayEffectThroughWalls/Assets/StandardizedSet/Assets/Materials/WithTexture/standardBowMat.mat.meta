@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c17119e65575f9f4883f963c77bed11c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Materials/WithTexture/standardBowMat.mat
+  uploadId: 295102

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5d81430ebb0db494f95d85be8daec0da
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Scripts/Utility Scripts/MoveAndShoot.cs
+  uploadId: 295102

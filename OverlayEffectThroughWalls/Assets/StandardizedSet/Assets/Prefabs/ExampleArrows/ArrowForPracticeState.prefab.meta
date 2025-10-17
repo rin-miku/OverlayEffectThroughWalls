@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b84fa8c2bddec7e40ba1dd1e2934c33b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Prefabs/ExampleArrows/ArrowForPracticeState.prefab
+  uploadId: 295102

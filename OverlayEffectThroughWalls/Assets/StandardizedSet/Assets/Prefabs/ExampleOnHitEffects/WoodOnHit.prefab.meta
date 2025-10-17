@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1b6c81ebd5ea23c448e537bba8b4da50
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Prefabs/ExampleOnHitEffects/WoodOnHit.prefab
+  uploadId: 295102

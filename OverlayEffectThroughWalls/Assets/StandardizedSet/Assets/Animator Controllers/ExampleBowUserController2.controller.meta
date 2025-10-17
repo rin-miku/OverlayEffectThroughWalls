@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 12663cc63a489ee4e8f7bb00fc5a5cab
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Animator Controllers/ExampleBowUserController2.controller
+  uploadId: 295102

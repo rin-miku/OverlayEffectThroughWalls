@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 21b3a62a66ea60b41a45c0d898797977
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Scripts/Utility Scripts/ExampleBowUserControl.cs
+  uploadId: 295102

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 40603764b0f670848b44da3353ef9ae8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Editor/StandardizedBowForHandEditor.cs
+  uploadId: 295102

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5ae6462d2f5619a49bfebe3750c0697a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Prefabs/ExampleBows/PracticeStateBowWithRig.prefab
+  uploadId: 295102

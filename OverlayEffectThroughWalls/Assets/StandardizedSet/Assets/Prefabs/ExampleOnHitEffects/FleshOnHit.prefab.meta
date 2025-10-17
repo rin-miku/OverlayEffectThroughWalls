@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fc6f7e0bb7905fd468af0326c2a0d6c4
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 139068
+  packageName: Standardize Bows
+  packageVersion: 1.0
+  assetPath: Assets/StandardizedSet/Assets/Prefabs/ExampleOnHitEffects/FleshOnHit.prefab
+  uploadId: 295102
