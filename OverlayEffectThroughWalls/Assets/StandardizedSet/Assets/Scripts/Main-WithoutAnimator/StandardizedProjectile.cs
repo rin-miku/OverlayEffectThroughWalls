@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(BoxCollider)),RequireComponent(typeof(AudioSource))]
 public class StandardizedProjectile : MonoBehaviour
 {
+    public Material detectionOutlineMaterial;
     #region Private Values
     // Bow communication variables
     [HideInInspector]
@@ -98,6 +100,12 @@ public class StandardizedProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (detectionOutlineMaterial != null)
+        {
+            Vector3 pos = transform.position;
+            detectionOutlineMaterial.SetVector("_CenterPosition", new Vector4(pos.x, pos.y, pos.z, 0f));
+        }
+
         // If it is released, meaning that projectile is not parented to string, start procedure
         if (transform.parent==null)
         {
@@ -134,6 +142,8 @@ public class StandardizedProjectile : MonoBehaviour
     // On Contact With Collider
     private void OnTriggerEnter(Collider other)
     {
+        DOVirtual.Float(20f, 0f, 2f, (value) => { detectionOutlineMaterial.SetFloat("_DetectionRadius", value); }).SetDelay(1f);
+
         // Current tag hash code
         contactHash = other.tag.GetHashCode();
         if (contactHash == fleshHash)
@@ -237,6 +247,8 @@ public class StandardizedProjectile : MonoBehaviour
                 collisionHappened = true;
             }            
         }
+
+
     }
 
     // Particles are pooled too - The starting projectile pool size in Standardize Bows is important. Make it high enough that, 

@@ -27,6 +27,7 @@ public class StandardizedBow : MonoBehaviour
     #endregion
 
     #region Public Values
+    public Material detectionOutlineMaterial;
     // PUBLIC VALUES
     [Header("     Bow Skeleton Parts")]
     [Tooltip("Upper bow transform. It must be right above the center position.")]
@@ -324,6 +325,7 @@ public class StandardizedBow : MonoBehaviour
         // STATE 1 - Pulling the string - Default Trigger is left mouse click
         if (Input.GetKey(KeyCode.Mouse0))
         {
+            detectionOutlineMaterial.SetFloat("_DetectionRadius", 0f);
             // STATE 2 - The moment you just pulled the string
             if (justPulledString)
             {
@@ -356,6 +358,7 @@ public class StandardizedBow : MonoBehaviour
             // STATE 3 - Just released the string - Default Trigger is left mouse click up
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
+                detectionOutlineMaterial.SetFloat("_DetectionRadius", 20f);
                 currentTime = 0;
                 stringLastPos = bowStringPoint.position;
                 firstLastUpJointRot1 = bowUpJoint1.localEulerAngles;
@@ -526,7 +529,7 @@ public class StandardizedBow : MonoBehaviour
     }
     float x, y;
     void ShootProjectile(float currentPower)
-    {        
+    {
         // Trajectory distort
         switch (projectileAccuracy)
         {
