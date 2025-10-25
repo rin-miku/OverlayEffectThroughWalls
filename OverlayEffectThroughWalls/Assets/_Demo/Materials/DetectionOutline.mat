@@ -137,7 +137,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CenterPosition: {r: 183.12823, g: 3.7390566, b: 261.983, a: 0}
+    - _CenterPosition: {r: 185.51892, g: 1.1616787, b: 266.04767, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 8, g: 0, b: 0, a: 1}

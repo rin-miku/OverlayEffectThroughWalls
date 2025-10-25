@@ -7,7 +7,7 @@
             Name "WriteStencil"
             Tags { "LightMode" = "WriteStencil" }
 
-            ZTest Always
+            ZTest LEqual
             ZWrite Off
             Cull Back
             Blend Off
