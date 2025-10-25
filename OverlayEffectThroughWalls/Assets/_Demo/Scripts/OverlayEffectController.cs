@@ -1,23 +1,24 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class OverlayEffectController : MonoBehaviour
 {
     public int overlayID;
     private List<Material> materials;
+    private MaterialPropertyBlock materialPropertyBlock;
 
     private void Start()
     {
+        materialPropertyBlock = new MaterialPropertyBlock();
+        materialPropertyBlock.SetInt("_OverlayID", overlayID);
         materials = new List<Material>();
         foreach(var skinnedMeshRenderer in transform.GetComponentsInChildren<SkinnedMeshRenderer>())
         {
-            materials.AddRange(skinnedMeshRenderer.materials);
+            materials.Add(skinnedMeshRenderer.sharedMaterial);
+            skinnedMeshRenderer.SetPropertyBlock(materialPropertyBlock);
         }
 
         SetShaderPassEnabled(false);
-        SetOverlayID(overlayID);
     }
 
     public void SetShaderPassEnabled(bool value)
@@ -25,14 +26,6 @@ public class OverlayEffectController : MonoBehaviour
         foreach (var material in materials)
         {
             material.SetShaderPassEnabled("WriteStencil", value);
-        }
-    }
-
-    public void SetOverlayID(int overlayID)
-    {
-        foreach (var material in materials)
-        {
-            material.SetInteger("_OverlayID", overlayID);
         }
     }
 }

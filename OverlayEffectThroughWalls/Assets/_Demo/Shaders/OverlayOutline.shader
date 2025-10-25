@@ -53,7 +53,7 @@ Shader "Custom/OverlayOutline"
 
                 uint2 pixelCoord = uint2(uv * float2(width, height));
 
-                uint mask = _StencilTexture.Load(int3(pixelCoord, 0));
+                uint mask = _StencilTexture.Load(int3(pixelCoord, 0)).r;
 
                 if(mask == 0) discard;
 
