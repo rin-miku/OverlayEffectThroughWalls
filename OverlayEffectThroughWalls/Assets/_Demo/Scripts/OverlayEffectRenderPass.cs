@@ -22,12 +22,12 @@ public class OverlayEffectRenderPass : ScriptableRenderPass
 
     public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameData)
     {
-        UniversalCameraData universalCameraData = frameData.Get<UniversalCameraData>();
-        UniversalRenderingData universalRenderingData = frameData.Get<UniversalRenderingData>();
-        UniversalLightData universalLightData = frameData.Get<UniversalLightData>();
-        UniversalResourceData universalResourceData = frameData.Get<UniversalResourceData>();
+        UniversalCameraData cameraData = frameData.Get<UniversalCameraData>();
+        UniversalRenderingData renderingData = frameData.Get<UniversalRenderingData>();
+        UniversalLightData lightData = frameData.Get<UniversalLightData>();
+        UniversalResourceData resourceData = frameData.Get<UniversalResourceData>();
 
-        var desc = universalCameraData.cameraTargetDescriptor;
+        var desc = cameraData.cameraTargetDescriptor;
         desc.depthStencilFormat = GraphicsFormat.None;
         desc.msaaSamples = 1;
         desc.graphicsFormat = GraphicsFormat.R8_UInt;
@@ -36,28 +36,30 @@ public class OverlayEffectRenderPass : ScriptableRenderPass
 
         using (var builder = renderGraph.AddRasterRenderPass("Write Stencil", out PassData passData))
         {
-            SortingCriteria sortingCriteria = universalCameraData.defaultOpaqueSortFlags;
+            SortingCriteria sortingCriteria = cameraData.defaultOpaqueSortFlags;
             RenderQueueRange renderQueueRange = RenderQueueRange.all;
             FilteringSettings filteringSettings = new FilteringSettings(renderQueueRange, ~0);
-            DrawingSettings drawingSettings = RenderingUtils.CreateDrawingSettings(new ShaderTagId("WriteStencil"), universalRenderingData, universalCameraData, universalLightData, sortingCriteria);
-            RendererListParams rendererListParams = new RendererListParams(universalRenderingData.cullResults, drawingSettings, filteringSettings);
+            DrawingSettings drawingSettings = RenderingUtils.CreateDrawingSettings(new ShaderTagId("WriteStencil"), renderingData, cameraData, lightData, sortingCriteria);
+            RendererListParams rendererListParams = new RendererListParams(renderingData.cullResults, drawingSettings, filteringSettings);
 
             passData.rendererListHandle = renderGraph.CreateRendererList(rendererListParams);
 
             builder.SetRenderAttachment(tempColor, 0);
+            builder.SetRenderAttachmentDepth(resourceData.activeDepthTexture);
             builder.UseRendererList(passData.rendererListHandle);
 
             builder.SetRenderFunc((PassData data, RasterGraphContext context) =>
             {
+                context.cmd.ClearRenderTarget(RTClearFlags.DepthStencil, Color.clear, 1f, 0u);
                 context.cmd.DrawRendererList(data.rendererListHandle);
             });
 
             builder.SetGlobalTextureAfterPass(tempColor, Shader.PropertyToID("_StencilTexture"));
         }
 
-        TextureHandle cameraColor = universalResourceData.activeColorTexture;
+        TextureHandle cameraColor = resourceData.activeColorTexture;
         BlitMaterialParameters blitParams = new BlitMaterialParameters(tempColor, cameraColor, overlayOutlineMaterial, 0);
         renderGraph.AddBlitPass(blitParams, "Overlay Outline");
-        universalResourceData.cameraColor = cameraColor;
+        resourceData.cameraColor = cameraColor;
     }
 }
